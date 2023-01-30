@@ -14,8 +14,8 @@ class MainActivity : AppCompatActivity() {
     private lateinit var fname : EditText
     private  lateinit var lname : EditText
     private lateinit var btn : Button
-
     private lateinit var Dbref: DatabaseReference
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -40,8 +40,8 @@ class MainActivity : AppCompatActivity() {
     private fun saveEmployeeData() {
 
 
-        val fn = fname.text.toString();
-        val ln = lname.text.toString();
+        val fn = fname.text.toString()
+        val ln = lname.text.toString()
 
         if (fn.isEmpty()){
             fname.error="please enter first name"
@@ -58,6 +58,7 @@ class MainActivity : AppCompatActivity() {
         Dbref.child(eid).setValue(employye)
             .addOnCompleteListener{
                 Toast.makeText(this, "data inserted", Toast.LENGTH_SHORT).show()
+
                 }
             .addOnFailureListener{err ->
                 Toast.makeText(this, "Error ${err.message}", Toast.LENGTH_SHORT).show()
