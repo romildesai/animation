@@ -58,6 +58,8 @@ class MainActivity : AppCompatActivity() {
         Dbref.child(eid).setValue(employye)
             .addOnCompleteListener{
                 Toast.makeText(this, "data inserted", Toast.LENGTH_SHORT).show()
+                val intent = Intent(this,user_list::class.java)
+                startActivity(intent)
 
                 }
             .addOnFailureListener{err ->
